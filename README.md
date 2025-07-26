@@ -24,9 +24,6 @@
 - Supplier and Ingredient sections dynamically load from database
 - Stylish login modal with show/hide password option
 
-### 🦸‍♂️ Footer Team Section:
-- Displays developer names, GitHub and LinkedIn links with images in a neat horizontal layout
-
 ---
 
 ## 🛠 Tech Stack
