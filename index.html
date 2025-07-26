@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+
+    <title>Food Mitra</title>
+    <style>
+      #ingredientsList > div,
+      #supplierList > div {
+        padding: 12px;
+        border-radius: 10px;
+        background: #ffffff;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        font-family: 'Poppins', sans-serif;
+      }
+      #nameInput {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#" class="logo">FoodMitra</a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#ingredients">INGREDIENTS</a></li>
+        <li><a href="#suppliers">SUPPLIERS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+      <div class="nav__btns">
+        <button class="btn" onclick="openLogin('vendor')">Vendor Login</button>
+        <button class="btn" onclick="openLogin('supplier')">Supplier Login</button>
+      </div>
+    </nav>
+
+    <header id="home">
+     <div class="header__content-wrapper">
+  <div class="header__content">
+    <p>Simplifying Street Food Sourcing</p>
+    <h1>Connecting Vendors with Trusted Suppliers</h1>
+    
+  </div>
+</div>
+
+    </header>
+
+    <!-- ABOUT SECTION -->
+<section id="about" class="section__container" style="background-color: #f9fbff; padding: 4rem 1rem;">
+  <h2 class="section__header" style="color: #2887ff; font-size: 3rem;">Who We Are</h2>
+  <p class="section__description" style="font-size: 1.2rem; line-height: 2rem; margin-top: 1rem;">
+    <span style="font-weight: bold; color: #0a0a0a;">FoodMitra</span> is a
+    <span style="color: #2887ff; font-weight: bold;">lifeline for street food vendors</span>
+    in India. We help you find <span style="color: green; font-weight: 600;">trusted, affordable suppliers</span>
+    for raw materials like rice, oil, vegetables, and masalas.
+  </p>
+  <p class="section__description" style="margin-top: 1.5rem;">
+    Whether you serve <span style="color: #e65100;">pani puri</span>, <span style="color: #ff5722;">vada pav</span>, or
+    <span style="color: #4caf50;">idli dosa</span>, we make sure your ingredients are fresh and your business runs
+    smoother than ever.
+  </p>
+  
+</section>
+
+    <section class="section__container" id="ingredients">
+      <h2 class="section__header">Ingredients</h2>
+      <div id="ingredientsList">Loading ingredients...</div>
+    </section>
+
+    <section class="section__container" id="suppliers">
+      <h2 class="section__header">Suppliers</h2>
+      <div id="supplierList">Loading suppliers...</div>
+    </section>
+
+    <!-- Login/Register Modal -->
+<div id="authModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000aa; justify-content:center; align-items:center;">
+  <div style="background:white; padding:30px; border-radius:12px; width:320px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position:relative;">
+    <h3 id="authTitle" style="text-align:center; font-size:24px; margin-bottom:20px;">Login</h3>
+
+    <input id="authEmail" type="email" placeholder="Email" style="width:100%; padding:10px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;" />
+
+    <div style="position:relative; width:100%;">
+      <input id="authPassword" type="password" placeholder="Password" style="width:100%; padding:10px 40px 10px 10px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;" />
+      <i id="togglePassword" class="ri-eye-off-line" style="position:absolute; right:10px; top:10px; cursor:pointer; font-size:18px; color:#555;"></i>
+    </div>
+
+    <button class="btn" onclick="submitAuth()" style="width:100%; margin-bottom:10px;">Submit</button>
+    <button class="btn" style="background:#888; width:100%;" onclick="closeModal()">Cancel</button>
+
+    <p id="toggleAuth" onclick="toggleMode()" style="cursor:pointer; margin-top:15px; text-align:center;">Don't have an account? <span style="color:#2887ff;">Register</span></p>
+  </div>
+</div>
+
+<!-- Footer section -->
+   <footer id="contact">
+  <div class="section__container footer__container">
+    <!-- Logo & About -->
+    <div class="footer__col">
+      <div class="footer__logo">
+        <a href="#" class="logo">FoodMitra</a>
+      </div>
+      <p>
+        Empowering vendors by connecting them with trusted suppliers.<br />
+        Easy sourcing, better business.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer__col">
+      <h4>Quick Links</h4>
+      <ul class="footer__links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#ingredients">Ingredients</a></li>
+        <li><a href="#suppliers">Suppliers</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer__col">
+      <h4>Contact</h4>
+      <ul class="footer__links">
+        <li><a href="#"><i class="ri-phone-fill"></i> +91 98765 43210</a></li>
+        <li><a href="#"><i class="ri-mail-line"></i> info@foodmitra.in</a></li>
+        <li><a href="#"><i class="ri-map-pin-2-fill"></i> Kopargaon, Maharashtra, India</a></li>
+      </ul>
+    </div>
+
+    <!-- Our Team Section -->
+    <div class="footer__col footer__team">
+      <h4>Our Team</h4>
+      <div class="team__grid">
+        <div class="team__member">
+          <img src="img/sk.jpg" alt="Saish" />
+          <p class="member__name">Saish Kulkarni</p>
+          <div class="team__socials">
+            <a href="https://linkedin.com/in/saishkulkarni" target="_blank"><i class="ri-linkedin-box-fill"></i></a>
+            <a href="https://github.com/saishkulkarni" target="_blank"><i class="ri-github-fill"></i></a>
+          </div>
+        </div>
+        <div class="team__member">
+          <img src="img/ad.jpg" alt="Riya" />
+          <p class="member__name">Anushka Deshmukh</p>
+          <div class="team__socials">
+            <a href="https://linkedin.com/in/riyamehta" target="_blank"><i class="ri-linkedin-box-fill"></i></a>
+            <a href="https://github.com/riyamehta" target="_blank"><i class="ri-github-fill"></i></a>
+          </div>
+        </div>
+        <div class="team__member">
+          <img src="img/skkkkk - Copy.jpg" alt="Aarav" />
+          <p class="member__name">Varad Kulkarni</p>
+          <div class="team__socials">
+            <a href="https://linkedin.com/in/varad" target="_blank"><i class="ri-linkedin-box-fill"></i></a>
+            <a href="https://github.com/varad" target="_blank"><i class="ri-github-fill"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bar">
+    © 2025 FoodMitra. All rights reserved.
+  </div>
+  <div class="footer__bar">
+    A Web By A Team of Foodies "Web Spiders 🕷️"
+</footer>
+  
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="firebase-config.js"></script>
+
+    <!-- Auth + Dynamic Data -->
+    <script>
+      let currentMode = "login";
+      let userRole = "vendor";
+
+      function openLogin(role) {
+        userRole = role;
+        document.getElementById("authModal").style.display = "flex";
+        document.getElementById("authTitle").innerText = "Login";
+        document.getElementById("nameInput").style.display = "none";
+        currentMode = "login";
+      }
+
+      function closeModal() {
+        document.getElementById("authModal").style.display = "none";
+      }
+
+      function toggleMode() {
+        const title = document.getElementById("authTitle");
+        const nameInput = document.getElementById("nameInput");
+        currentMode = currentMode === "login" ? "register" : "login";
+        title.innerText = currentMode === "login" ? "Login" : "Register";
+        nameInput.style.display = currentMode === "register" ? "block" : "none";
+      }
+
+      function submitAuth() {
+        const email = document.getElementById("authEmail").value;
+        const password = document.getElementById("authPassword").value;
+        const name = document.getElementById("nameInput").value;
+
+        if (currentMode === "register") {
+          firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(cred => {
+              return firebase.firestore().collection("users").doc(cred.user.uid).set({
+                email,
+                name,
+                role: userRole
+              });
+            })
+            .then(() => {
+              alert("Registered successfully!");
+              closeModal();
+              if (userRole === "supplier") window.location.href = "supplier.html";
+              else window.location.href = "vendor.html";
+            })
+            .catch(err => alert(err.message));
+        } else {
+          firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(cred => {
+              return firebase.firestore().collection("users").doc(cred.user.uid).get();
+            })
+            .then(doc => {
+              const user = doc.data();
+              if (user.role === "supplier") window.location.href = "supplier.html";
+              else window.location.href = "vendor.html";
+            })
+            .catch(err => alert(err.message));
+        }
+      }
+
+      // Load Ingredients
+      firebase.firestore().collection("products").get().then(snapshot => {
+        const list = document.getElementById("ingredientsList");
+        list.innerHTML = "";
+        snapshot.forEach(doc => {
+          const d = doc.data();
+          const el = document.createElement("div");
+          el.innerHTML = `<strong>${d.name}</strong> (${d.category}) – ₹${d.price}/kg<br/><small>Supplier: ${d.supplierEmail}</small>`;
+          list.appendChild(el);
+        });
+      });
+
+      // Load Supplier Names
+      firebase.firestore().collection("users").where("role", "==", "supplier").get().then(snapshot => {
+        const list = document.getElementById("supplierList");
+        list.innerHTML = "";
+        snapshot.forEach(doc => {
+          const d = doc.data();
+          const el = document.createElement("div");
+          el.innerHTML = `<strong>${d.name}</strong><br/><small>${d.email}</small>`;
+          list.appendChild(el);
+        });
+      });
+    </script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+  document.getElementById('togglePassword').addEventListener('click', function () {
+    const passwordInput = document.getElementById('authPassword');
+    const icon = this;
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      icon.classList.remove('ri-eye-off-line');
+      icon.classList.add('ri-eye-line');
+    } else {
+      passwordInput.type = "password";
+      icon.classList.remove('ri-eye-line');
+      icon.classList.add('ri-eye-off-line');
+    }
+  });
+</script>
+
+  </body>
+</html>

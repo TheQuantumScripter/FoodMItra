@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vendor Dashboard – FoodMitra</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f1f7ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2887ff;
+      margin-top: 2rem;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    #vendorName {
+      color: #2887ff;
+    }
+
+    .ingredient-list {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .ingredient {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .ingredient:last-child {
+      border-bottom: none;
+    }
+
+    .ingredient-name {
+      font-weight: bold;
+    }
+
+    .ingredient-meta {
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome, <span id="vendorName">Vendor</span>!</h1>
+  <p>Explore available ingredients added by verified suppliers below:</p>
+
+  <div class="ingredient-list" id="ingredientList">
+    Loading ingredients...
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+
+  <script>
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "index.html";
+      } else {
+        // Get vendor name
+        firebase.firestore().collection("users").doc(user.uid).get().then(doc => {
+          const data = doc.data();
+          document.getElementById("vendorName").textContent = data.name || "Vendor";
+        });
+
+        loadIngredients();
+      }
+    });
+
+    function loadIngredients() {
+      const list = document.getElementById("ingredientList");
+      list.innerHTML = "";
+
+      firebase.firestore().collection("products").get().then(snapshot => {
+        if (snapshot.empty) {
+          list.innerHTML = "<p>No products found.</p>";
+          return;
+        }
+
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const item = `
+            <div class="ingredient">
+              <div>
+                <div class="ingredient-name">${data.name} (${data.category})</div>
+                <div class="ingredient-meta">By ${data.supplierEmail}</div>
+              </div>
+              <div class="ingredient-price">₹${data.price}/kg</div>
+            </div>
+          `;
+          list.innerHTML += item;
+        });
+      });
+    }
+  </script>
+</body>
+</html>
