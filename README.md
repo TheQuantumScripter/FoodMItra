@@ -122,7 +122,7 @@ Open `index.html` in your browser or use Live Server (VS Code) or host on Netlif
 
 ## 📜 License
 
-
+CC0 1.0 Universal
 
 ---
 
