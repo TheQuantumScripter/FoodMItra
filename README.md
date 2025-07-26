@@ -95,7 +95,7 @@ Open `index.html` in your browser or use Live Server (VS Code) or host on Netlif
 
 ## 📸 Screenshots
 
-> Add screenshots of:
+
 - Homepage
 - Supplier dashboard
 - Vendor dashboard
@@ -122,7 +122,7 @@ Open `index.html` in your browser or use Live Server (VS Code) or host on Netlif
 
 ## 📜 License
 
-This project is created for learning and competition purposes but don't use this as tamplate without permission
+
 
 ---
 
