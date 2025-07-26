@@ -55,44 +55,6 @@
 └── README.md           # This file
 ```
 
----
-
-## 🔧 Setup Instructions
-
-### 1. Clone or Download
-
-```bash
-git clone https://github.com/your-username/foodmitra.git
-cd foodmitra
-```
-
-### 2. Setup Firebase
-
-- Go to [Firebase Console](https://console.firebase.google.com/)
-- Create a new project
-- Enable **Authentication > Email/Password**
-- Create a **Cloud Firestore** database
-- Add `firebase-config.js` file like this:
-
-```js
-// firebase-config.js
-const firebaseConfig = {
-  apiKey: "YOUR-API-KEY",
-  authDomain: "YOUR-PROJECT.firebaseapp.com",
-  projectId: "YOUR-PROJECT-ID",
-  storageBucket: "YOUR.appspot.com",
-  messagingSenderId: "SENDER-ID",
-  appId: "APP-ID"
-};
-firebase.initializeApp(firebaseConfig);
-```
-
-### 3. Run Project
-
-Open `index.html` in your browser or use Live Server (VS Code) or host on Netlify.
-
----
-
 ## 📸 Screenshots
 
 
