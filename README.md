@@ -24,6 +24,9 @@
 - Supplier and Ingredient sections dynamically load from database
 - Stylish login modal with show/hide password option
 
+### 🦸‍♂️ Footer Team Section:
+- Displays developer names, GitHub and LinkedIn links with images in a neat horizontal layout
+
 ---
 
 ## 🛠 Tech Stack
@@ -43,18 +46,56 @@
 ```bash
 📦 FoodMitra
 ├── img
-├── index.html          # Main landing page with login modal
-├── vendor.html         # Vendor dashboard to view products
-├── supplier.html       # Supplier dashboard to add/manage products
+├── index.html          # Main landing page with 
+├── vendor.html         # Vendor dashboard to view 
+├── supplier.html       # Supplier dashboard to add/
 ├── style.css           # Custom styles
 ├── firebase-config.js  # Firebase credentials/config
-├── main.js             # Navbar toggle and other UI logic
+├── main.js             # Navbar toggle and other UI 
 └── README.md           # This file
 ```
 
+---
+
+## 🔧 Setup Instructions
+
+### 1. Clone or Download
+
+```bash
+git clone https://github.com/your-username/foodmitra.git
+cd foodmitra
+```
+
+### 2. Setup Firebase
+
+- Go to [Firebase Console](https://console.firebase.google.com/)
+- Create a new project
+- Enable **Authentication > Email/Password**
+- Create a **Cloud Firestore** database
+- Add `firebase-config.js` file like this:
+
+```js
+// firebase-config.js
+const firebaseConfig = {
+  apiKey: "YOUR-API-KEY",
+  authDomain: "YOUR-PROJECT.firebaseapp.com",
+  projectId: "YOUR-PROJECT-ID",
+  storageBucket: "YOUR.appspot.com",
+  messagingSenderId: "SENDER-ID",
+  appId: "APP-ID"
+};
+firebase.initializeApp(firebaseConfig);
+```
+
+### 3. Run Project
+
+Open `index.html` in your browser or use Live Server (VS Code) or host on Netlify.
+
+---
+
 ## 📸 Screenshots
 
-
+> Add screenshots of:
 - Homepage
 - Supplier dashboard
 - Vendor dashboard
@@ -66,9 +107,9 @@
 
 | Name              | GitHub                             | LinkedIn                          |
 |-------------------|------------------------------------|-----------------------------------|
-| Saish Kulkarni    | [@saishkulkarni](https://github.com/saishkulkarni) | [LinkedIn](https://linkedin.com/in/saishkulkarni) |
-| Anushka Deshmukh  | [@riyamehta](https://github.com/riyamehta) | [LinkedIn](https://linkedin.com/in/riyamehta)     |
-| Varad Kulkarni    | [@varad](https://github.com/varad) | [LinkedIn](https://linkedin.com/in/varad)         |
+| Saish Kulkarni    | [GitHub](https://github.com/TheQuantumScripter) | [LinkedIn](https://www.linkedin.com/in/saish-kulkarni-384776320) |
+| Anushka Deshmukh  | [GitHub](https://github.com/CodeWhizAnu) | [LinkedIn](https://www.linkedin.com/in/anushka-deshmukh-21b692319)     |
+| Varad Kulkarni    | [GitHub](https://github.com/varad) | [LinkedIn](https://linkedin.com/in/varad)         |
 
 ---
 
@@ -81,7 +122,7 @@
 
 ## 📜 License
 
-CC0 1.0 Universal
+This project is created for learning and competition purposes but don't use this as tamplate without permission
 
 ---
 

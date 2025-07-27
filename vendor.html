@@ -58,13 +58,12 @@
   </style>
 </head>
 <body>
+  <section class="section__container">
+    <h1 class="section__header">Welcome, Vendor!</h1>
+    <p class="section__description">Browse available ingredients:</p>
 
-  <h1>Welcome, <span id="vendorName">Vendor</span>!</h1>
-  <p>Explore available ingredients added by verified suppliers below:</p>
-
-  <div class="ingredient-list" id="ingredientList">
-    Loading ingredients...
-  </div>
+    <div id="allProducts" class="destination__grid"></div>
+  </section>
 
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
