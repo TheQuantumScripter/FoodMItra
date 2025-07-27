@@ -119,7 +119,7 @@ Open `index.html` in your browser or use Live Server (VS Code) or host on Netlif
 ---
 
 ## 📜 License
-
+Creative Commons Zero v1.0 Universal
 This project is created for learning and competition purposes but don't use this as tamplate without permission
 
 ---
