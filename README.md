@@ -36,7 +36,7 @@
 | Frontend          | HTML, CSS, JavaScript                  |
 | Authentication    | Firebase Auth                          |
 | Database          | Firebase Firestore                     |
-| Hosting           | Netlify / Vercel (optional for demo)   |
+| Hosting           | Netlify   |
 | Icons & Fonts     | RemixIcon, Google Fonts (Pacifico etc) |
 
 ---
@@ -94,8 +94,6 @@ Open `index.html` in your browser or use Live Server (VS Code) or host on Netlif
 ---
 
 ## 📸 Screenshots
-
-> Add screenshots of:
 - Homepage
 - Supplier dashboard
 - Vendor dashboard
